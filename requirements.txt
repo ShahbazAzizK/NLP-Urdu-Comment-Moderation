@@ -1,0 +1,6 @@
+datasets
+scikit-learn
+pandas
+urduhack
+requests
+python-dotenv
