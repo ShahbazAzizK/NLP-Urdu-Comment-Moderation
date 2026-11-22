@@ -1,224 +1,56 @@
-# Project Progress Log: Up Till Now
-
-## Project
+# Group 18 ? Roman Urdu Offensive Language Detection
 
 **Course:** CS 5316: NLP Theory and Applications  
-**Category:** Category 2 - Re-implementation with a Novel Extension  
-**Topic:** Cross-Script Offensive Language Detection for Roman Urdu and standard Urdu  
-**Team:** Group 18  
-**Status:** Phases 0 through 4 completed; Phase 5 not started
+**Project type:** Re-implementation with a proposed novel extension  
+**Status:** Supervised baseline complete; local prompt-model evaluation planned.
 
-## Project Objective
+## Project question
 
-The project re-implements prompt-based offensive-language detection for Urdu and Roman Urdu based on:
+Does giving a language model a small set of Roman Urdu?Urdu-script spelling correspondences improve offensive-language classification, especially when Roman Urdu spelling varies? The proposed method is **Cross-Script Alignment Prompting (CSAP)**. The current intermediate report does not claim CSAP results. The checkpoint instructions allow either an initial novelty implementation or a clear account of planned work; our report states a concrete local evaluation plan.
 
-> Iffat Maab, Usman Haider, and Junichi Yamagishi. "Prompt-driven Detection of Offensive Urdu Language using Large Language Models." EACL 2026, pages 4302-4327.
+## What is complete
 
-The proposed extension is **Cross-Script Alignment Prompting**. The method injects a small Roman Urdu to standard Urdu alignment dictionary into the prompt so that the model can interpret spelling variants, abbreviations, and slang before classifying a comment.
+- Local RUHSOLD Task 1 coarse-grained dataset audited. Source labels: `0 = abusive/offensive`, `1 = normal`. Supplied splits: 7,209 train, 801 validation, 2,003 test.
+- Original project baseline: character TF?IDF (2?5) + LinearSVC (`C=1`), with test accuracy 0.8902 and macro-F1 0.8894. Metrics and predictions: `results/ruhsold_task1_svm_metrics.json`, `results/ruhsold_task1_svm_predictions.csv`.
+- A second, self-contained experiment in `testing/` compares a matched character-SVM baseline with conservative exact-token Roman spelling normalization. It removes train examples whose normalized text overlaps validation/test before fitting. Current test macro-F1: 0.8924 baseline, 0.8999 normalization probe. These are preliminary and do not establish the LLM novelty.
+- A Python experiment runner, Jupyter notebook, and saved outputs are in `testing/`.
 
-## Phase 0: Planning and Documentation
+## Data caveats
 
-### Completed
+The supplied Task 2 validation file duplicates its training file and is excluded. The local experiments use RUHSOLD Task 1, not the anchor paper?s complete set of models/datasets; do not call the local result a full reproduction. The spelling normalization probe uses a manually specified Romanized variant list; review it with Urdu speakers before generalizing its result.
 
-Created `project_plan.md` in the project root.
+## Planned prompt-model evaluation
 
-The plan documents:
+Hosted Gemini/Groq attempts were blocked by API quotas. No LLM evaluation metrics were saved. The next planned step is to run zero-shot, few-shot, and CSAP prompts at N=5 and N=15 with a local Ollama model, starting with `qwen3.5:4b`. The resumable runner is `testing/ollama_prompt_eval.py`; it evaluates a deterministic balanced 30-example test pilot and saves each response to `testing/results/ollama_prompt_predictions.jsonl` plus a summary JSON. It makes no cloud/API requests. The local model is optional for the completed SVM work but required to make empirical claims about the prompt-based novelty while hosted APIs are unavailable.
 
-- Motivation and the Roman Urdu/Urdu script gap.
-- The central research question.
-- Hypotheses.
-- Re-implementation scope.
-- TF-IDF SVM, zero-shot, and few-shot baselines.
-- Cross-Script Alignment Prompting.
-- N=0, N=5, and N=15 ablation levels.
-- RUHSOLD, Akhter et al., and custom spelling-variation data.
-- Macro-F1, precision, recall, latency, and prompt-size evaluation.
-- Error-analysis taxonomy.
-- Execution roadmap.
-- Risks, controls, deliverables, and success criteria.
+### Local model setup
 
-## Phase 1: Environment Setup
+1. Install Ollama for Windows from [ollama.com/download](https://ollama.com/download) and leave its local service running.
+2. In PowerShell, run `ollama pull qwen3.5:4b`; optionally verify it with `ollama run qwen3.5:4b`.
+3. From the project root, run:
 
-### Completed
+   ```powershell
+   .venv/Scripts/python.exe testing/ollama_prompt_eval.py --model qwen3.5:4b --n 30
+   ```
 
-Created `requirements.txt` containing:
 
-- `datasets`
-- `scikit-learn`
-- `pandas`
-- `urduhack`
-- `requests`
-- `python-dotenv`
+## Important files
 
-Created the following directory structure:
+- `intermediate_report.tex` ? IEEE conference-format source; compile and check the final PDF is at most three pages before submission.
+- `project_plan.md` ? full scope, evaluation design, risks, and progress state.
+- `baz_todo_beforeph5.md` ? evidence-based Phase 5 readiness checklist.
+- `notebooks/ruhsold_baseline_and_alignment.ipynb` ? root baseline and prompt scaffold notebook.
+- `testing/README.md` ? no-API experiment and Ollama setup details.
+- `testing/ruhsold_experiments.ipynb` ? rerunnable SVM/normalization experiment.
+- `testing/run_experiments.py` ? no-API runner.
+- `testing/ollama_prompt_eval.py` ? optional resumable local LLM runner.
 
-```text
-data/
-    raw/
-    processed/
-configs/
-notebooks/
-results/
-src/
-    data/
-    models/
+## Run the no-API experiments
+
+From the project root:
+
+```powershell
+.venv/Scripts/python.exe testing/run_experiments.py
 ```
 
-The declared dependencies were installed in the configured Python 3.14 environment. No PyTorch or TensorFlow dependency was added.
-
-## Phase 2: Data Pipeline
-
-### Completed
-
-Created [src/data/preprocess.py](src/data/preprocess.py).
-
-The module provides:
-
-- RUHSOLD loading through Hugging Face `datasets`.
-- Default dataset name `roman_urdu_hate_speech`.
-- Default configuration `Coarse_Grained`.
-- Flexible text-column discovery for common names such as `text`, `tweet`, `comment`, and `sentence`.
-- Flexible label-column discovery for common names such as `label`, `labels`, `class`, and `category`.
-- URL removal.
-- Mention removal.
-- Repeated-character reduction.
-- Whitespace normalization.
-- Arabic Unicode variant normalization to Urdu characters.
-- Binary label normalization:
-  - Offensive = 1.
-  - Normal = 0.
-- Hugging Face `Dataset` and `DatasetDict` split preparation.
-
-### Correction Found During Later Audit
-
-The label normalizer originally rejected labels such as `non-offensive` because hyphens were converted to spaces before lookup. The accepted normalized forms were corrected to include `non offensive` and `non hate`.
-
-The correction was validated with direct edge-case tests.
-
-## Phase 3: Classical Baseline
-
-### Completed
-
-Created [src/models/baseline_svm.py](src/models/baseline_svm.py).
-
-The module provides:
-
-- Character-level `TfidfVectorizer`.
-- Character n-gram range `(2, 5)`.
-- `LinearSVC` classifier.
-- Configurable SVM `C` value.
-- Optional class weighting.
-- Training function.
-- Prediction function.
-- Input-length, text-type, and binary-label validation.
-- Structured scikit-learn classification report.
-- Per-class precision, recall, and F1.
-- Macro and weighted averages.
-
-A small balanced training/evaluation smoke test passed with Macro-F1 output successfully produced.
-
-## Phase 4: LLM Inference and Prompting
-
-### Completed
-
-Created [src/models/llm_prompter.py](src/models/llm_prompter.py).
-
-The module provides:
-
-- Zero-shot prompt generation.
-- Four-example few-shot prompt generation.
-- Cross-Script Alignment Prompting.
-- Configurable dictionary size through `n_dictionary_examples`.
-- Default alignment ablation support for N=0, N=5, and N=15.
-- Roman Urdu to Urdu-script alignment examples.
-- Environment-based configuration through `python-dotenv`.
-- OpenAI-compatible request payloads, including services such as Groq.
-- Gemini-style request payloads.
-- Request timeouts.
-- Bounded retries for rate-limit and server errors.
-- Deterministic parsing of `normal` and `offensive` labels.
-- Mockable HTTP sessions for testing without a real API request.
-
-A mocked API smoke test passed, including:
-
-- Prompt generation.
-- N=5 alignment injection.
-- Label parsing.
-- OpenAI-compatible response extraction.
-
-No real API request was made.
-
-## Research Paper Verification
-
-After the initial implementation, the authoritative paper and the authors' official repository were checked:
-
-- Paper: https://aclanthology.org/2026.eacl-long.201/
-- Official code: https://github.com/nii-yamagishilab/offensive-urdu-language-detection
-
-Important details confirmed from the paper:
-
-- RUHSOLD coarse-grained data contains 9,992 examples.
-- The binary labels are Abusive and Not abusive.
-- The binary few-shot setup uses four examples: two abusive and two non-abusive.
-- RUHSOLD is evaluated with English, Roman Urdu, and Urdu prompts.
-- RUTUBE and USADC are evaluated using English prompts.
-- RUTUBE uses a balanced 10,000-example sample from the Akhter et al. corpus.
-- The paper primarily evaluates local open-weight Llama, Qwen, and Lughaat models.
-- GPT-4 is included as a proprietary comparison, not as the only possible route.
-- The official repository provides local-model prompting code, prompt templates, label configurations, and incremental output handling.
-
-## Validation Completed
-
-The following checks have passed:
-
-- Markdown diagnostics for the project plan and requirements file.
-- Python syntax compilation for the Phase 2 module.
-- Phase 2 preprocessing smoke test.
-- Phase 3 SVM training and evaluation smoke test.
-- Phase 3 required vectorizer configuration check.
-- Phase 4 prompt and mocked API smoke test.
-- Editor diagnostics for all implemented Python modules.
-- Post-audit label-normalization edge-case test.
-- Post-audit SVM regression smoke test.
-
-## Current Project State
-
-The core Phases 0 through 4 are implemented. Before Phase 5, one refinement should be made for a more faithful reproduction:
-
-1. Configure and smoke-test a free Gemini or Groq API endpoint.
-2. Align prompt wording and binary labels more closely with the paper: `Abusive` and `Not abusive`.
-3. Improve response parsing to prioritize `Not abusive` before matching `Abusive`, as recommended by the paper's answer-cleansing procedure.
-4. Verify the actual RUHSOLD dataset identifier and schema before a full run.
-5. Obtain or prepare the Akhter/RUTUBE data and the custom 300-example spelling-variation set.
-
-These refinements are prerequisites for a clean, reproducible Phase 5 evaluation. Phase 5 has not been started, and no full dataset experiment or real LLM inference has been run yet.
-
-## Cost and Resource Plan
-
-The project can be completed using free services without paying for API usage, subject to provider quotas:
-
-- Dataset download and SVM experiments are free.
-- Gemini or Groq free tiers can be used for LLM inference. They require API keys but do not necessarily require paid billing.
-- Free-tier quotas, rate limits, model availability, and provider policies may change, so the selected provider and limits must be recorded in the experiment metadata.
-- A local Ollama model remains an optional fallback if hosted quotas are insufficient.
-- API keys must never be committed to the repository.
-
-The current client supports OpenAI-compatible endpoints such as Groq and Gemini-style endpoints. Credentials should be supplied through environment variables or a local `.env` file:
-
-- Groq/OpenAI-compatible: `LLM_ENDPOINT`, `LLM_API_KEY`, `LLM_MODEL`
-- Gemini: `GEMINI_ENDPOINT`, `GEMINI_API_KEY`, `GEMINI_MODEL`
-
-## Files Created So Far
-
-```text
-project_plan.md
-requirements.txt
-src/data/preprocess.py
-src/models/baseline_svm.py
-src/models/llm_prompter.py
-up_til_now.md
-```
-
-## Next Planned Step
-
-Configure and smoke-test the selected Gemini or Groq endpoint, complete the paper-compatible answer parsing refinement, and then proceed to Phase 5: evaluation, comparison, logging, and N=0/N=5/N=15 ablation experiments.
+Outputs are written under `testing/results/`. Do not merge metrics from different implementations/configurations; each JSON summary records its own method.

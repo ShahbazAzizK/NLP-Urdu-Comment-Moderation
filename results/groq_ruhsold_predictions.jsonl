@@ -1,0 +1,120 @@
+{"sample_id": 0, "text": "terrorist hamesa aise hi hote hai tabhi to tera baap aur dadi ka kya hua", "gold": 0, "condition": "zero_shot", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 0, "text": "terrorist hamesa aise hi hote hai tabhi to tera baap aur dadi ka kya hua", "gold": 0, "condition": "few_shot", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 0, "text": "terrorist hamesa aise hi hote hai tabhi to tera baap aur dadi ka kya hua", "gold": 0, "condition": "alignment_n5", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 0, "text": "terrorist hamesa aise hi hote hai tabhi to tera baap aur dadi ka kya hua", "gold": 0, "condition": "alignment_n15", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 1, "text": "   look bro tu ab new fight na start kar sab shant hai ab to silent hi rehne de.i don't want any argue wid u koi issue na banana mjhe so plz stay away #kingasim 💪💪💪💪💪", "gold": 1, "condition": "zero_shot", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 1, "text": "   look bro tu ab new fight na start kar sab shant hai ab to silent hi rehne de.i don't want any argue wid u koi issue na banana mjhe so plz stay away #kingasim 💪💪💪💪💪", "gold": 1, "condition": "few_shot", "pred": 1}
+{"sample_id": 1, "text": "   look bro tu ab new fight na start kar sab shant hai ab to silent hi rehne de.i don't want any argue wid u koi issue na banana mjhe so plz stay away #kingasim 💪💪💪💪💪", "gold": 1, "condition": "alignment_n5", "pred": 0}
+{"sample_id": 1, "text": "   look bro tu ab new fight na start kar sab shant hai ab to silent hi rehne de.i don't want any argue wid u koi issue na banana mjhe so plz stay away #kingasim 💪💪💪💪💪", "gold": 1, "condition": "alignment_n15", "pred": 0}
+{"sample_id": 2, "text": "hum sy toh na ho paye ga😂😂", "gold": 1, "condition": "zero_shot", "pred": 0}
+{"sample_id": 2, "text": "hum sy toh na ho paye ga😂😂", "gold": 1, "condition": "few_shot", "pred": 0}
+{"sample_id": 2, "text": "hum sy toh na ho paye ga😂😂", "gold": 1, "condition": "alignment_n5", "pred": 0}
+{"sample_id": 2, "text": "hum sy toh na ho paye ga😂😂", "gold": 1, "condition": "alignment_n15", "pred": 0}
+{"sample_id": 3, "text": "mery pas ha jwab aor day bhe dia ha es bayghart kanjar kashmir frosh gandu lanti sazishi kanjar imran yahodi ki najaiz olad ko", "gold": 0, "condition": "zero_shot", "pred": 1}
+{"sample_id": 3, "text": "mery pas ha jwab aor day bhe dia ha es bayghart kanjar kashmir frosh gandu lanti sazishi kanjar imran yahodi ki najaiz olad ko", "gold": 0, "condition": "few_shot", "pred": 1}
+{"sample_id": 3, "text": "mery pas ha jwab aor day bhe dia ha es bayghart kanjar kashmir frosh gandu lanti sazishi kanjar imran yahodi ki najaiz olad ko", "gold": 0, "condition": "alignment_n5", "pred": 1}
+{"sample_id": 3, "text": "mery pas ha jwab aor day bhe dia ha es bayghart kanjar kashmir frosh gandu lanti sazishi kanjar imran yahodi ki najaiz olad ko", "gold": 0, "condition": "alignment_n15", "pred": 1}
+{"sample_id": 4, "text": "   salman to hai hi ghatiya har season mey usne kisi na kisi ko target karna hi hota hai", "gold": 0, "condition": "zero_shot", "pred": 1}
+{"sample_id": 4, "text": "   salman to hai hi ghatiya har season mey usne kisi na kisi ko target karna hi hota hai", "gold": 0, "condition": "few_shot", "pred": 1}
+{"sample_id": 4, "text": "   salman to hai hi ghatiya har season mey usne kisi na kisi ko target karna hi hota hai", "gold": 0, "condition": "alignment_n5", "pred": 1}
+{"sample_id": 4, "text": "   salman to hai hi ghatiya har season mey usne kisi na kisi ko target karna hi hota hai", "gold": 0, "condition": "alignment_n15", "pred": 1}
+{"sample_id": 5, "text": "aby han mn bhol gya ye to sasti randi hy 😂😂", "gold": 0, "condition": "zero_shot", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 5, "text": "aby han mn bhol gya ye to sasti randi hy 😂😂", "gold": 0, "condition": "few_shot", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 5, "text": "aby han mn bhol gya ye to sasti randi hy 😂😂", "gold": 0, "condition": "alignment_n5", "pred": 1}
+{"sample_id": 5, "text": "aby han mn bhol gya ye to sasti randi hy 😂😂", "gold": 0, "condition": "alignment_n15", "pred": 1}
+{"sample_id": 6, "text": "apni gao mata ko chodny waloon ko azadi ks bharwe ne di?", "gold": 0, "condition": "zero_shot", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 6, "text": "apni gao mata ko chodny waloon ko azadi ks bharwe ne di?", "gold": 0, "condition": "few_shot", "pred": 1}
+{"sample_id": 6, "text": "apni gao mata ko chodny waloon ko azadi ks bharwe ne di?", "gold": 0, "condition": "alignment_n5", "pred": 0}
+{"sample_id": 6, "text": "apni gao mata ko chodny waloon ko azadi ks bharwe ne di?", "gold": 0, "condition": "alignment_n15", "pred": 1}
+{"sample_id": 7, "text": "fazlu bhen chod. there, i said it.", "gold": 0, "condition": "zero_shot", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 7, "text": "fazlu bhen chod. there, i said it.", "gold": 0, "condition": "few_shot", "pred": 1}
+{"sample_id": 7, "text": "fazlu bhen chod. there, i said it.", "gold": 0, "condition": "alignment_n5", "pred": 1}
+{"sample_id": 7, "text": "fazlu bhen chod. there, i said it.", "gold": 0, "condition": "alignment_n15", "pred": 1}
+{"sample_id": 8, "text": " rona to bnta hy na yar😔", "gold": 1, "condition": "zero_shot", "pred": 0}
+{"sample_id": 8, "text": " rona to bnta hy na yar😔", "gold": 1, "condition": "few_shot", "pred": 0}
+{"sample_id": 8, "text": " rona to bnta hy na yar😔", "gold": 1, "condition": "alignment_n5", "pred": 0}
+{"sample_id": 8, "text": " rona to bnta hy na yar😔", "gold": 1, "condition": "alignment_n15", "pred": 0}
+{"sample_id": 9, "text": "pakistan say zeyda to indian oh sorry randia main randiya ha dear don’t make innocent randianz 😂👍🏻🖕🏼", "gold": 0, "condition": "zero_shot", "pred": 1}
+{"sample_id": 9, "text": "pakistan say zeyda to indian oh sorry randia main randiya ha dear don’t make innocent randianz 😂👍🏻🖕🏼", "gold": 0, "condition": "few_shot", "pred": 1}
+{"sample_id": 9, "text": "pakistan say zeyda to indian oh sorry randia main randiya ha dear don’t make innocent randianz 😂👍🏻🖕🏼", "gold": 0, "condition": "alignment_n5", "pred": 1}
+{"sample_id": 9, "text": "pakistan say zeyda to indian oh sorry randia main randiya ha dear don’t make innocent randianz 😂👍🏻🖕🏼", "gold": 0, "condition": "alignment_n15", "pred": 1}
+{"sample_id": 10, "text": "ha ho sakta ha corona tax lagh jay  per pucha nahi jay ga  pakistani o ghabrana nahi ha", "gold": 1, "condition": "zero_shot", "pred": 0}
+{"sample_id": 10, "text": "ha ho sakta ha corona tax lagh jay  per pucha nahi jay ga  pakistani o ghabrana nahi ha", "gold": 1, "condition": "few_shot", "pred": 0}
+{"sample_id": 10, "text": "ha ho sakta ha corona tax lagh jay  per pucha nahi jay ga  pakistani o ghabrana nahi ha", "gold": 1, "condition": "alignment_n5", "pred": 0}
+{"sample_id": 10, "text": "ha ho sakta ha corona tax lagh jay  per pucha nahi jay ga  pakistani o ghabrana nahi ha", "gold": 1, "condition": "alignment_n15", "pred": 0}
+{"sample_id": 11, "text": " apki bato ny mery bhut sary sawalo ka jawab diya hy ...shyd apny mujhy b parh lia hy...shyd es safar main hun lekin log seekhaty b bhut hyn or logun k raweyeoun sy dukh b bhut hota hy khush rahyn bhut sari duaon main yad rakheye ga bhut shukriya♥♥♥", "gold": 1, "condition": "zero_shot", "pred": 0}
+{"sample_id": 11, "text": " apki bato ny mery bhut sary sawalo ka jawab diya hy ...shyd apny mujhy b parh lia hy...shyd es safar main hun lekin log seekhaty b bhut hyn or logun k raweyeoun sy dukh b bhut hota hy khush rahyn bhut sari duaon main yad rakheye ga bhut shukriya♥♥♥", "gold": 1, "condition": "few_shot", "pred": 0}
+{"sample_id": 11, "text": " apki bato ny mery bhut sary sawalo ka jawab diya hy ...shyd apny mujhy b parh lia hy...shyd es safar main hun lekin log seekhaty b bhut hyn or logun k raweyeoun sy dukh b bhut hota hy khush rahyn bhut sari duaon main yad rakheye ga bhut shukriya♥♥♥", "gold": 1, "condition": "alignment_n5", "pred": 0}
+{"sample_id": 11, "text": " apki bato ny mery bhut sary sawalo ka jawab diya hy ...shyd apny mujhy b parh lia hy...shyd es safar main hun lekin log seekhaty b bhut hyn or logun k raweyeoun sy dukh b bhut hota hy khush rahyn bhut sari duaon main yad rakheye ga bhut shukriya♥♥♥", "gold": 1, "condition": "alignment_n15", "pred": 0}
+{"sample_id": 12, "text": "noon league agar khaati thi tou lagaati bhi thi, ab tou mai bhi iss baat pe yakeen karny lag gaya hoon.yeh pti walay bharwe bas khayi jaa rahay hain aur laga thullu bi ni rahay.10 lakh naukriyan aur 50 lakh ghar ka daawah kiya tha.mazay ki baat, mere jaisay pagal ne maan bhi liya", "gold": 0, "condition": "zero_shot", "pred": 0}
+{"sample_id": 12, "text": "noon league agar khaati thi tou lagaati bhi thi, ab tou mai bhi iss baat pe yakeen karny lag gaya hoon.yeh pti walay bharwe bas khayi jaa rahay hain aur laga thullu bi ni rahay.10 lakh naukriyan aur 50 lakh ghar ka daawah kiya tha.mazay ki baat, mere jaisay pagal ne maan bhi liya", "gold": 0, "condition": "few_shot", "pred": 1}
+{"sample_id": 12, "text": "noon league agar khaati thi tou lagaati bhi thi, ab tou mai bhi iss baat pe yakeen karny lag gaya hoon.yeh pti walay bharwe bas khayi jaa rahay hain aur laga thullu bi ni rahay.10 lakh naukriyan aur 50 lakh ghar ka daawah kiya tha.mazay ki baat, mere jaisay pagal ne maan bhi liya", "gold": 0, "condition": "alignment_n5", "pred": 0}
+{"sample_id": 12, "text": "noon league agar khaati thi tou lagaati bhi thi, ab tou mai bhi iss baat pe yakeen karny lag gaya hoon.yeh pti walay bharwe bas khayi jaa rahay hain aur laga thullu bi ni rahay.10 lakh naukriyan aur 50 lakh ghar ka daawah kiya tha.mazay ki baat, mere jaisay pagal ne maan bhi liya", "gold": 0, "condition": "alignment_n15", "pred": 0}
+{"sample_id": 13, "text": " ary yar betao to sahi ese kese mujh se karte ho aur muje pata bhe nahi hai ke kis wajha se", "gold": 1, "condition": "zero_shot", "pred": 0}
+{"sample_id": 13, "text": " ary yar betao to sahi ese kese mujh se karte ho aur muje pata bhe nahi hai ke kis wajha se", "gold": 1, "condition": "few_shot", "pred": 0}
+{"sample_id": 13, "text": " ary yar betao to sahi ese kese mujh se karte ho aur muje pata bhe nahi hai ke kis wajha se", "gold": 1, "condition": "alignment_n5", "pred": 0}
+{"sample_id": 13, "text": " ary yar betao to sahi ese kese mujh se karte ho aur muje pata bhe nahi hai ke kis wajha se", "gold": 1, "condition": "alignment_n15", "pred": 0}
+{"sample_id": 14, "text": "hahaha lakh di lanat tere munh tay khottay k puttar lanati yahodi lobby k agent haramkhor badzat dalay", "gold": 0, "condition": "zero_shot", "pred": 1}
+{"sample_id": 14, "text": "hahaha lakh di lanat tere munh tay khottay k puttar lanati yahodi lobby k agent haramkhor badzat dalay", "gold": 0, "condition": "few_shot", "pred": 1}
+{"sample_id": 14, "text": "hahaha lakh di lanat tere munh tay khottay k puttar lanati yahodi lobby k agent haramkhor badzat dalay", "gold": 0, "condition": "alignment_n5", "pred": 1}
+{"sample_id": 14, "text": "hahaha lakh di lanat tere munh tay khottay k puttar lanati yahodi lobby k agent haramkhor badzat dalay", "gold": 0, "condition": "alignment_n15", "pred": 1}
+{"sample_id": 15, "text": "bss jaldi say 7feb ajaye🙏🏼😪", "gold": 1, "condition": "zero_shot", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 15, "text": "bss jaldi say 7feb ajaye🙏🏼😪", "gold": 1, "condition": "few_shot", "pred": 0}
+{"sample_id": 15, "text": "bss jaldi say 7feb ajaye🙏🏼😪", "gold": 1, "condition": "alignment_n5", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 15, "text": "bss jaldi say 7feb ajaye🙏🏼😪", "gold": 1, "condition": "alignment_n15", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 16, "text": "ab itna bh bura nahi mein 🙄", "gold": 1, "condition": "zero_shot", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 16, "text": "ab itna bh bura nahi mein 🙄", "gold": 1, "condition": "few_shot", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 16, "text": "ab itna bh bura nahi mein 🙄", "gold": 1, "condition": "alignment_n5", "pred": 0}
+{"sample_id": 16, "text": "ab itna bh bura nahi mein 🙄", "gold": 1, "condition": "alignment_n15", "pred": 0}
+{"sample_id": 17, "text": "bhenchod  2 mlas pe itna dimakh.. tumhari fitrat hi nahi hai logo ke saath ghul mil ke kuchh kiya jaaye.. you are nobody.. shove that letter up in your ass..", "gold": 0, "condition": "zero_shot", "pred": 1}
+{"sample_id": 17, "text": "bhenchod  2 mlas pe itna dimakh.. tumhari fitrat hi nahi hai logo ke saath ghul mil ke kuchh kiya jaaye.. you are nobody.. shove that letter up in your ass..", "gold": 0, "condition": "few_shot", "pred": 1}
+{"sample_id": 17, "text": "bhenchod  2 mlas pe itna dimakh.. tumhari fitrat hi nahi hai logo ke saath ghul mil ke kuchh kiya jaaye.. you are nobody.. shove that letter up in your ass..", "gold": 0, "condition": "alignment_n5", "pred": 1}
+{"sample_id": 17, "text": "bhenchod  2 mlas pe itna dimakh.. tumhari fitrat hi nahi hai logo ke saath ghul mil ke kuchh kiya jaaye.. you are nobody.. shove that letter up in your ass..", "gold": 0, "condition": "alignment_n15", "pred": 1}
+{"sample_id": 18, "text": "  apni bhabi k liye b pindi sy kuch lana lahnga", "gold": 1, "condition": "zero_shot", "pred": 0}
+{"sample_id": 18, "text": "  apni bhabi k liye b pindi sy kuch lana lahnga", "gold": 1, "condition": "few_shot", "pred": 0}
+{"sample_id": 18, "text": "  apni bhabi k liye b pindi sy kuch lana lahnga", "gold": 1, "condition": "alignment_n5", "pred": 0}
+{"sample_id": 18, "text": "  apni bhabi k liye b pindi sy kuch lana lahnga", "gold": 1, "condition": "alignment_n15", "pred": 0}
+{"sample_id": 19, "text": "badi taraqi kr li hai bhenchodo amazon py b mil rha", "gold": 0, "condition": "zero_shot", "pred": 1}
+{"sample_id": 19, "text": "badi taraqi kr li hai bhenchodo amazon py b mil rha", "gold": 0, "condition": "few_shot", "pred": 1}
+{"sample_id": 19, "text": "badi taraqi kr li hai bhenchodo amazon py b mil rha", "gold": 0, "condition": "alignment_n5", "pred": 1}
+{"sample_id": 19, "text": "badi taraqi kr li hai bhenchodo amazon py b mil rha", "gold": 0, "condition": "alignment_n15", "pred": 1}
+{"sample_id": 20, "text": "aur tm lagta h halala se paida hue h jo apne desh se gaddari krte ho", "gold": 0, "condition": "zero_shot", "pred": 1}
+{"sample_id": 20, "text": "aur tm lagta h halala se paida hue h jo apne desh se gaddari krte ho", "gold": 0, "condition": "few_shot", "pred": 1}
+{"sample_id": 20, "text": "aur tm lagta h halala se paida hue h jo apne desh se gaddari krte ho", "gold": 0, "condition": "alignment_n5", "pred": 1}
+{"sample_id": 20, "text": "aur tm lagta h halala se paida hue h jo apne desh se gaddari krte ho", "gold": 0, "condition": "alignment_n15", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 21, "text": "jui inahahallah pakistan say qadyani yahoodi agent ki hukmat awr ap jesy qadyani yahoodi ki supporter ki secret program planning awam ki samny rakty rehngy", "gold": 0, "condition": "zero_shot", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 21, "text": "jui inahahallah pakistan say qadyani yahoodi agent ki hukmat awr ap jesy qadyani yahoodi ki supporter ki secret program planning awam ki samny rakty rehngy", "gold": 0, "condition": "few_shot", "pred": 1}
+{"sample_id": 21, "text": "jui inahahallah pakistan say qadyani yahoodi agent ki hukmat awr ap jesy qadyani yahoodi ki supporter ki secret program planning awam ki samny rakty rehngy", "gold": 0, "condition": "alignment_n5", "pred": 1}
+{"sample_id": 21, "text": "jui inahahallah pakistan say qadyani yahoodi agent ki hukmat awr ap jesy qadyani yahoodi ki supporter ki secret program planning awam ki samny rakty rehngy", "gold": 0, "condition": "alignment_n15", "pred": 1}
+{"sample_id": 22, "text": "o jaaa tur jaa ti di phudi wich lul leni dya", "gold": 0, "condition": "zero_shot", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 22, "text": "o jaaa tur jaa ti di phudi wich lul leni dya", "gold": 0, "condition": "few_shot", "pred": 1}
+{"sample_id": 22, "text": "o jaaa tur jaa ti di phudi wich lul leni dya", "gold": 0, "condition": "alignment_n5", "pred": 1}
+{"sample_id": 22, "text": "o jaaa tur jaa ti di phudi wich lul leni dya", "gold": 0, "condition": "alignment_n15", "pred": 1}
+{"sample_id": 23, "text": "jin k jaane se jati thi jaan humne unko bhi jaaty huwe dekha hai/.....😃😃", "gold": 1, "condition": "zero_shot", "pred": 0}
+{"sample_id": 23, "text": "jin k jaane se jati thi jaan humne unko bhi jaaty huwe dekha hai/.....😃😃", "gold": 1, "condition": "few_shot", "pred": 0}
+{"sample_id": 23, "text": "jin k jaane se jati thi jaan humne unko bhi jaaty huwe dekha hai/.....😃😃", "gold": 1, "condition": "alignment_n5", "pred": 0}
+{"sample_id": 23, "text": "jin k jaane se jati thi jaan humne unko bhi jaaty huwe dekha hai/.....😃😃", "gold": 1, "condition": "alignment_n15", "pred": 0}
+{"sample_id": 24, "text": "bc yeh kia fake bawaseer phela rahi ho gashti", "gold": 0, "condition": "zero_shot", "pred": 1}
+{"sample_id": 24, "text": "bc yeh kia fake bawaseer phela rahi ho gashti", "gold": 0, "condition": "few_shot", "pred": 1}
+{"sample_id": 24, "text": "bc yeh kia fake bawaseer phela rahi ho gashti", "gold": 0, "condition": "alignment_n5", "pred": 1}
+{"sample_id": 24, "text": "bc yeh kia fake bawaseer phela rahi ho gashti", "gold": 0, "condition": "alignment_n15", "pred": 1}
+{"sample_id": 25, "text": " bt jo shuru krdi phr... wase ab m phr bye bolne e lgi thi so bye", "gold": 1, "condition": "zero_shot", "pred": 0}
+{"sample_id": 25, "text": " bt jo shuru krdi phr... wase ab m phr bye bolne e lgi thi so bye", "gold": 1, "condition": "few_shot", "pred": 0}
+{"sample_id": 25, "text": " bt jo shuru krdi phr... wase ab m phr bye bolne e lgi thi so bye", "gold": 1, "condition": "alignment_n5", "pred": 0}
+{"sample_id": 25, "text": " bt jo shuru krdi phr... wase ab m phr bye bolne e lgi thi so bye", "gold": 1, "condition": "alignment_n15", "pred": 0}
+{"sample_id": 26, "text": "kashmiri ko be-waquf banana chur du tu kashmir ka masla hal hu jaea ga ", "gold": 1, "condition": "zero_shot", "pred": 1}
+{"sample_id": 26, "text": "kashmiri ko be-waquf banana chur du tu kashmir ka masla hal hu jaea ga ", "gold": 1, "condition": "few_shot", "pred": 1}
+{"sample_id": 26, "text": "kashmiri ko be-waquf banana chur du tu kashmir ka masla hal hu jaea ga ", "gold": 1, "condition": "alignment_n5", "pred": 1}
+{"sample_id": 26, "text": "kashmiri ko be-waquf banana chur du tu kashmir ka masla hal hu jaea ga ", "gold": 1, "condition": "alignment_n15", "pred": 0}
+{"sample_id": 27, "text": "tunnel ke end pe aa gai houn magar yahan koi light nai hai this is a scam", "gold": 1, "condition": "zero_shot", "pred": 0}
+{"sample_id": 27, "text": "tunnel ke end pe aa gai houn magar yahan koi light nai hai this is a scam", "gold": 1, "condition": "few_shot", "pred": 0}
+{"sample_id": 27, "text": "tunnel ke end pe aa gai houn magar yahan koi light nai hai this is a scam", "gold": 1, "condition": "alignment_n5", "pred": 0}
+{"sample_id": 27, "text": "tunnel ke end pe aa gai houn magar yahan koi light nai hai this is a scam", "gold": 1, "condition": "alignment_n15", "pred": 0}
+{"sample_id": 28, "text": " chongqing walon k liye phir bhe kuch nahe hona sakoon rakh😂", "gold": 1, "condition": "zero_shot", "pred": 0}
+{"sample_id": 28, "text": " chongqing walon k liye phir bhe kuch nahe hona sakoon rakh😂", "gold": 1, "condition": "few_shot", "pred": 0}
+{"sample_id": 28, "text": " chongqing walon k liye phir bhe kuch nahe hona sakoon rakh😂", "gold": 1, "condition": "alignment_n5", "pred": 0}
+{"sample_id": 28, "text": " chongqing walon k liye phir bhe kuch nahe hona sakoon rakh😂", "gold": 1, "condition": "alignment_n15", "pred": 0}
+{"sample_id": 29, "text": " kbi ni ho gi bhai ub wo umar guzar gai", "gold": 1, "condition": "zero_shot", "pred": 0}
+{"sample_id": 29, "text": " kbi ni ho gi bhai ub wo umar guzar gai", "gold": 1, "condition": "few_shot", "error": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.groq.com/openai/v1/chat/completions"}
+{"sample_id": 29, "text": " kbi ni ho gi bhai ub wo umar guzar gai", "gold": 1, "condition": "alignment_n5", "pred": 0}
+{"sample_id": 29, "text": " kbi ni ho gi bhai ub wo umar guzar gai", "gold": 1, "condition": "alignment_n15", "pred": 0}

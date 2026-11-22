@@ -1,0 +1,38 @@
+{
+  "model": "qwen/qwen3.8-27b",
+  "n_examples": 30,
+  "conditions": {
+    "zero_shot": {
+      "n_valid": 21,
+      "n_failed": 9,
+      "accuracy": 0.09523809523809523,
+      "macro_f1": 0.09523809523809523,
+      "macro_precision": 0.09722222222222221,
+      "macro_recall": 0.09722222222222221
+    },
+    "few_shot": {
+      "n_valid": 26,
+      "n_failed": 4,
+      "accuracy": 0.07692307692307693,
+      "macro_f1": 0.07142857142857142,
+      "macro_precision": 0.06666666666666667,
+      "macro_recall": 0.07692307692307693
+    },
+    "alignment_n5": {
+      "n_valid": 28,
+      "n_failed": 2,
+      "accuracy": 0.10714285714285714,
+      "macro_f1": 0.10600255427841634,
+      "macro_precision": 0.10512820512820513,
+      "macro_recall": 0.10714285714285714
+    },
+    "alignment_n15": {
+      "n_valid": 27,
+      "n_failed": 3,
+      "accuracy": 0.037037037037037035,
+      "macro_f1": 0.03571428571428571,
+      "macro_precision": 0.03333333333333333,
+      "macro_recall": 0.038461538461538464
+    }
+  }
+}

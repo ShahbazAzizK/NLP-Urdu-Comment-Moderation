@@ -1,0 +1,208 @@
+{
+  "dataset": "RUHSOLD Task 1 coarse-grained; local supplied splits",
+  "label_mapping": {
+    "0": "abusive/offensive",
+    "1": "normal"
+  },
+  "split_sizes": {
+    "train": 7202,
+    "validation": 801,
+    "test": 2003
+  },
+  "label_distributions": {
+    "train": {
+      "0": 3354,
+      "1": 3848
+    },
+    "validation": {
+      "0": 373,
+      "1": 428
+    },
+    "test": {
+      "0": 933,
+      "1": 1070
+    }
+  },
+  "duplicate_audit_exact_normalized_text": {
+    "train_unique": 7195,
+    "validation_unique": 801,
+    "test_unique": 2001,
+    "train_validation_exact_overlap": 2,
+    "train_test_exact_overlap": 4,
+    "validation_test_exact_overlap": 1,
+    "train_rows_removed_for_eval_overlap": 7,
+    "train_rows_after_leakage_filter": 7202
+  },
+  "random_seed": 473,
+  "novelty": "No-API cross-script spelling robustness probe: canonicalize predeclared exact Roman Urdu variant tokens before char n-gram classification. This is a lexical-normalization proxy, not LLM Cross-Script Alignment Prompting and not Urdu-script transliteration.",
+  "mapping_groups": {
+    "nahi": [
+      "nahi",
+      "nahin",
+      "nai",
+      "nhi"
+    ],
+    "acha": [
+      "accha",
+      "acha",
+      "achha"
+    ],
+    "kyun": [
+      "kiun",
+      "kyu",
+      "kyun"
+    ],
+    "mujhe": [
+      "mje",
+      "mjhe",
+      "mjhy",
+      "mujhay",
+      "mujhe",
+      "mujhy"
+    ],
+    "hai": [
+      "hai",
+      "hay",
+      "hey"
+    ],
+    "tumhe": [
+      "tumhay",
+      "tumhe",
+      "tumhy"
+    ],
+    "aap": [
+      "aap",
+      "ap"
+    ],
+    "bohat": [
+      "bahut",
+      "bhot",
+      "bohat"
+    ],
+    "kuch": [
+      "kch",
+      "kuch"
+    ],
+    "kyunki": [
+      "kyun_kay",
+      "kyunke",
+      "kyunki",
+      "q_k",
+      "qke"
+    ]
+  },
+  "conditions": [
+    {
+      "condition": "baseline",
+      "model": "char TF-IDF (2-5) + LinearSVC(C=1.0)",
+      "preprocessing": "URL/mention removal, elongation reduction, whitespace normalization",
+      "train_n": 7202,
+      "validation_n": 801,
+      "test_n": 2003,
+      "validation_macro_f1": 0.8634831460674157,
+      "test_accuracy": 0.8931602596105841,
+      "test_macro_precision": 0.8935186023810242,
+      "test_macro_recall": 0.8916974687221404,
+      "test_macro_f1": 0.8924303048797626,
+      "test_weighted_f1": 0.8930363885047478,
+      "class_report": {
+        "abusive/offensive": {
+          "precision": 0.8972375690607735,
+          "recall": 0.8703108252947481,
+          "f1-score": 0.8835690968443961,
+          "support": 933.0
+        },
+        "normal": {
+          "precision": 0.8897996357012751,
+          "recall": 0.9130841121495327,
+          "f1-score": 0.9012915129151291,
+          "support": 1070.0
+        },
+        "accuracy": 0.8931602596105841,
+        "macro avg": {
+          "precision": 0.8935186023810242,
+          "recall": 0.8916974687221404,
+          "f1-score": 0.8924303048797626,
+          "support": 2003.0
+        },
+        "weighted avg": {
+          "precision": 0.8932642347149605,
+          "recall": 0.8931602596105841,
+          "f1-score": 0.8930363885047478,
+          "support": 2003.0
+        }
+      },
+      "confusion_matrix_label_order": [
+        "abusive/offensive",
+        "normal"
+      ],
+      "confusion_matrix": [
+        [
+          812,
+          121
+        ],
+        [
+          93,
+          977
+        ]
+      ],
+      "fit_seconds": 2.0876420999411494
+    },
+    {
+      "condition": "roman_variant_normalization",
+      "model": "char TF-IDF (2-5) + LinearSVC(C=1.0)",
+      "preprocessing": "URL/mention removal, elongation reduction, whitespace normalization + exact-token Roman Urdu variant canonicalization",
+      "train_n": 7202,
+      "validation_n": 801,
+      "test_n": 2003,
+      "validation_macro_f1": 0.8708423968029138,
+      "test_accuracy": 0.9006490264603095,
+      "test_macro_precision": 0.9013050266948726,
+      "test_macro_recall": 0.8990498943214031,
+      "test_macro_f1": 0.8999281716869912,
+      "test_weighted_f1": 0.9005090958278419,
+      "class_report": {
+        "abusive/offensive": {
+          "precision": 0.9077777777777778,
+          "recall": 0.8756698821007503,
+          "f1-score": 0.8914348063284233,
+          "support": 933.0
+        },
+        "normal": {
+          "precision": 0.8948322756119673,
+          "recall": 0.922429906542056,
+          "f1-score": 0.9084215370455592,
+          "support": 1070.0
+        },
+        "accuracy": 0.9006490264603095,
+        "macro avg": {
+          "precision": 0.9013050266948726,
+          "recall": 0.8990498943214031,
+          "f1-score": 0.8999281716869912,
+          "support": 2003.0
+        },
+        "weighted avg": {
+          "precision": 0.9008623073247488,
+          "recall": 0.9006490264603095,
+          "f1-score": 0.9005090958278419,
+          "support": 2003.0
+        }
+      },
+      "confusion_matrix_label_order": [
+        "abusive/offensive",
+        "normal"
+      ],
+      "confusion_matrix": [
+        [
+          817,
+          116
+        ],
+        [
+          83,
+          987
+        ]
+      ],
+      "fit_seconds": 2.1484047998674214
+    }
+  ]
+}

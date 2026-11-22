@@ -1,0 +1,64 @@
+{
+  "dataset": "RUHSOLD Task 1 coarse-grained",
+  "split_source": "provided train/validation/test TSV",
+  "train_n": 7209,
+  "validation_n": 801,
+  "test_n": 2003,
+  "label_mapping": {
+    "0": "abusive/offensive",
+    "1": "normal"
+  },
+  "model": "char TF-IDF (2-5), LinearSVC(C=1.0)",
+  "train_seconds": 1.5975075999740511,
+  "accuracy": 0.890164752870694,
+  "macro_precision": 0.8905793818584516,
+  "macro_recall": 0.8886192665604873,
+  "macro_f1": 0.8893959017298676,
+  "weighted_f1": 0.890026635899288,
+  "class_report": {
+    "abusive/offensive": {
+      "precision": 0.8947951273532669,
+      "recall": 0.8660235798499464,
+      "f1-score": 0.8801742919389978,
+      "support": 933.0
+    },
+    "normal": {
+      "precision": 0.8863636363636364,
+      "recall": 0.9112149532710281,
+      "f1-score": 0.8986175115207373,
+      "support": 1070.0
+    },
+    "accuracy": 0.890164752870694,
+    "macro avg": {
+      "precision": 0.8905793818584516,
+      "recall": 0.8886192665604873,
+      "f1-score": 0.8893959017298676,
+      "support": 2003.0
+    },
+    "weighted avg": {
+      "precision": 0.8902910358111277,
+      "recall": 0.890164752870694,
+      "f1-score": 0.890026635899288,
+      "support": 2003.0
+    }
+  },
+  "confusion_matrix_labels": [
+    "abusive/offensive",
+    "normal"
+  ],
+  "confusion_matrix": [
+    [
+      808,
+      125
+    ],
+    [
+      95,
+      975
+    ]
+  ],
+  "caveats": [
+    "Official label 0 is abusive/offensive and 1 is normal.",
+    "No additional preprocessing applied; raw text is used.",
+    "The Task 2 validation TSV duplicates Task 2 training and is excluded."
+  ]
+}

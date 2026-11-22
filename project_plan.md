@@ -151,6 +151,12 @@ For the best-performing alignment configuration, the team will manually review u
 
 ## 8. Execution Roadmap
 
+### Current status (22 November 2026)
+- **Phases 0?3:** planning and environment scaffolding are present; the local RUHSOLD Task 1 split was audited and the character TF?IDF + LinearSVC baseline was evaluated. Test accuracy is 0.8902 and macro-F1 is 0.8894; artifacts are in `results/`.
+- **Phase 4:** prompt builders and API client exist; a Gemini `gemini-3.1-flash-lite` direct smoke response succeeded. Project classification requests hit the free-tier 15 RPM limit. No LLM predictions or novelty metrics have been saved; this phase is incomplete.
+- **Phases 5?6:** not started.
+- **Scope correction:** current baseline uses the supplied local RUHSOLD Task 1 split, not the complete anchor-paper evaluation. The Task 2 validation file duplicates Task 2 training and is excluded.
+
 ### Phase 0 - Planning and documentation
 
 - Create this project plan.
