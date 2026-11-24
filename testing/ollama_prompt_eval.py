@@ -35,7 +35,7 @@ def select(rows,n):
  return chosen,demos
 
 def prompt(text,condition,demos):
- task=('You classify Roman Urdu social-media comments. Label Abusive if it contains abuse, hate, insults, or profanity; otherwise label Not abusive. Consider meaning, not spelling. Return exactly one label: Abusive or Not abusive.\n')
+ task=('You are a binary classification system. Classify the comment as Abusive if it contains abuse, hate, insults, or profanity; otherwise classify it as Not abusive. Return exactly one of these two labels and nothing else: Abusive OR Not abusive.\n')
  shots='\n'.join(f'Comment: {t}\nLabel: {LABEL[y]}' for t,y in demos)
  align='\n'.join(f'{r} = {u}' for r,u in ALIGN[:int(condition.rsplit("n",1)[1])]) if condition.startswith('alignment_n') else ''
  if condition=='zero_shot': return task+f'Comment: {text}\nLabel:'
@@ -61,7 +61,8 @@ def main():
  if out.exists():
   for line in out.read_text(encoding='utf-8').splitlines():
    try:
-    r=json.loads(line); existing[(r['example_hash'],r['condition'],r['model'])]=r
+    r=json.loads(line)
+    if 'prediction' in r: existing[(r['example_hash'],r['condition'],r['model'])]=r
    except Exception: pass
  total=len(selected)*len(conditions); done=0
  with out.open('a',encoding='utf-8') as f:
@@ -73,7 +74,7 @@ def main():
     record={'example_hash':h,'row_id':i,'text':text,'gold':gold,'gold_name':LABEL[gold],'condition':cond,'model':args.model}
     start=time.perf_counter()
     try:
-     res=requests.post(args.host.rstrip('/')+'/api/chat',json={'model':args.model,'messages':[{'role':'user','content':prompt(text,cond,demos)}],'stream':False,'options':{'temperature':0,'num_predict':12}},timeout=300)
+     res=requests.post(args.host.rstrip('/')+'/api/chat',json={'model':args.model,'messages':[{'role':'user','content':prompt(text,cond,demos)}],'stream':False,'think':False,'options':{'temperature':0,'num_predict':32}},timeout=300)
      if not res.ok: raise RuntimeError(f'HTTP {res.status_code}: {res.text[:300]}')
      answer=res.json()['message']['content']; record['raw_response']=answer; record['prediction']=parse(answer)
     except Exception as e: record['error']=f'{type(e).__name__}: {str(e)[:300]}'
@@ -81,6 +82,10 @@ def main():
     f.write(json.dumps(record,ensure_ascii=False)+'\n');f.flush();done+=1
     print(f'{done}/{total}: {cond} row {i+1}',flush=True)
  allrows=[json.loads(x) for x in out.read_text(encoding='utf-8').splitlines() if x.strip()]
+ # Keep the latest result for each sample/condition/model; retries replace old failures.
+ latest={}
+ for r in allrows: latest[(r.get('example_hash'),r.get('condition'),r.get('model'))]=r
+ allrows=list(latest.values())
  summary={'dataset':'RUHSOLD Task 1 provided test split','n_examples':len(selected),'model':args.model,'temperature':0,'conditions':{}}
  for cond in conditions:
   rr=[r for r in allrows if r.get('model')==args.model and r.get('condition')==cond and r.get('example_hash') in {digest(x) for x in selected}]

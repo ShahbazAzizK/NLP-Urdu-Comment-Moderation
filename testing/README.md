@@ -49,3 +49,8 @@ Your 32 GB RAM and RTX 5060 Laptop GPU should handle a small quantized model. Ol
 4. From the project root run ` .venv/Scripts/python.exe testing/ollama_prompt_eval.py --model qwen3.5:4b --n 30 `.
 
 The runner makes 120 local requests for 30 balanced test examples across zero-shot, few-shot, N=5, and N=15 alignment prompts. It saves each response immediately and resumes completed rows if interrupted. It uses four deterministic training demonstrations, fixed decoding, parses the source labels consistently, and writes summary metrics. Local model results must be labeled as a pilot and not compared as if they were the anchor paper's model. No API calls or paid billing are involved.
+
+
+## Local prompt pilot (completed)
+
+Ollama `qwen3.5:4b` completed 120 local requests: 30 balanced RUHSOLD Task 1 examples across four prompt conditions. Coverage was 100% for every condition. Macro-F1: zero-shot 0.8316; few-shot 0.8643; alignment N=5 0.8990; alignment N=15 0.8999. Accuracy: 0.8333, 0.8667, 0.9000, and 0.9000, respectively. Treat this as exploratory; confirm on a larger untouched sample and review mappings before drawing conclusions. Full metrics are in `results/ollama_prompt_summary.json`; raw outputs and latency are in `results/ollama_prompt_predictions.jsonl`.
