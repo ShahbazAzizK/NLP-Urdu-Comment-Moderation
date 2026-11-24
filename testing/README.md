@@ -30,7 +30,7 @@ On the supplied test set, the matched implementation produced:
 | Condition | Accuracy | Macro-F1 |
 |---|---:|---:|
 | Character SVM baseline | 0.8932 | 0.8924 |
-| Roman spelling normalization probe | 0.9006 | 0.8999 |
+| Roman spelling normalization probe | 0.9006 | 0.8990 |
 
 These are preliminary local results for this implementation. They differ from earlier baseline artifacts because this package uses explicit text cleaning, `sublinear_tf=True`, and removes train/evaluation text overlaps; do not combine numbers across configurations. Results and per-row predictions are written under `testing/results/`.
 
@@ -53,7 +53,7 @@ The runner makes 120 local requests for 30 balanced test examples across zero-sh
 
 ## Local prompt pilot (completed)
 
-Ollama `qwen3.5:4b` completed 120 local requests: 30 balanced RUHSOLD Task 1 examples across four prompt conditions. Coverage was 100% for every condition. Macro-F1: zero-shot 0.8316; few-shot 0.8643; alignment N=5 0.8990; alignment N=15 0.8999. Accuracy: 0.8333, 0.8667, 0.9000, and 0.9000, respectively. Treat this as exploratory; confirm on a larger untouched sample and review mappings before drawing conclusions. Full metrics are in `results/ollama_prompt_summary.json`; raw outputs and latency are in `results/ollama_prompt_predictions.jsonl`.
+Ollama `qwen3.5:4b` completed 120 local requests: 30 balanced RUHSOLD Task 1 examples across four prompt conditions. Coverage was 100% for every condition. Macro-F1: zero-shot 0.8316; few-shot 0.8643; alignment N=5 0.8643; alignment N=15 0.8990. Accuracy: 0.8333, 0.8667, 0.8667, and 0.9000, respectively. Treat this as exploratory; confirm on a larger untouched sample and review mappings before drawing conclusions. The corrected summary uses prompt version `csap-urdu-utf8-v1`; old failed/placeholder-version rows remain in JSONL for audit and are excluded. Full metrics are in `results/ollama_prompt_summary.json`; raw outputs and latency are in `results/ollama_prompt_predictions.jsonl`.
 
 
 ## Visual pilot notebook

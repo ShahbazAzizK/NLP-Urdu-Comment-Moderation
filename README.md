@@ -18,16 +18,16 @@ The root contains the original project code and the intermediate report source. 
 
 `testing/` contains a separate leakage-aware, reproducible experiment package and the local LLM pilot. The no-API experiment removes training examples overlapping evaluation text, then compares matched character SVM with a Roman spelling-normalization probe. Test macro-F1: **0.8924 baseline**, **0.8999 normalization probe**. This probe is not the LLM novelty.
 
-The Ollama pilot used **Qwen 3.5 4B**, temperature 0, on 30 balanced RUHSOLD Task 1 test examples (15 per class), with 30 valid predictions per condition:
+The corrected Ollama pilot used **Qwen 3.5 4B**, temperature 0, on 30 balanced RUHSOLD Task 1 test examples (15 per class), with 30 valid predictions per condition:
 
 | Prompt condition | Accuracy | Macro-F1 |
 |---|---:|---:|
 | Zero-shot | 0.8333 | 0.8316 |
 | Four-example few-shot | 0.8667 | 0.8643 |
-| CSAP, N=5 | 0.9000 | 0.8990 |
-| CSAP, N=15 | 0.9000 | 0.8999 |
+| CSAP, N=5 | 0.8667 | 0.8643 |
+| CSAP, N=15 | 0.9000 | 0.8990 |
 
-This 30-example pilot is **exploratory**, not conclusive. It was used for preliminary development; a larger evaluation with the mapping list reviewed and frozen is needed before claiming CSAP improves generalization. Full metrics: `testing/results/ollama_prompt_summary.json`; per-request outputs and latency: `testing/results/ollama_prompt_predictions.jsonl`.
+This 30-example pilot is **exploratory**, not conclusive. It was used for preliminary development; a larger evaluation with the mapping list reviewed and frozen is needed before claiming CSAP improves generalization. Full metrics: `testing/results/ollama_prompt_summary.json`; per-request outputs and latency: `testing/results/ollama_prompt_predictions.jsonl`. The summary is versioned `csap-urdu-utf8-v1`; legacy rows are retained in the JSONL but excluded from its scores.
 
 ## Data and interpretation caveats
 

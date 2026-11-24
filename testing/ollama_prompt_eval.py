@@ -14,11 +14,12 @@ ROOT=Path(__file__).resolve().parents[1]
 DATA=ROOT/'data/2020paper/roman_urdu_hate_speech-main'
 OUT=Path(__file__).resolve().parent/'results'
 LABEL={0:'Abusive',1:'Not abusive'}
+PROMPT_VERSION='csap-urdu-utf8-v1'
 # Reviewed common lexical correspondences; mappings are evidence for interpretation,
 # never class labels. Expand only with native-speaker review.
-ALIGN=[('nahi','????'),('nhi','????'),('nai','????'),('kyun','????'),('acha','????'),
-       ('mujhe','????'),('mujhy','????'),('tum','??'),('hai','??'),('kuch','???'),
-       ('bohat','???'),('aap','??'),('ap','??'),('dost','????'),('ghar','???')]
+ALIGN=[('nahi','نہیں'),('nhi','نہیں'),('nai','نہیں'),('kyun','کیوں'),('acha','اچھا'),
+       ('mujhe','مجھے'),('mujhy','مجھے'),('tum','تم'),('hai','ہے'),('kuch','کچھ'),
+       ('bohat','بہت'),('aap','آپ'),('ap','آپ'),('dost','دوست'),('ghar','گھر')]
 
 def read(name):
  with (DATA/f'task_1_{name}.tsv').open(encoding='utf-8-sig',newline='',errors='replace') as f:
@@ -62,16 +63,16 @@ def main():
   for line in out.read_text(encoding='utf-8').splitlines():
    try:
     r=json.loads(line)
-    if 'prediction' in r: existing[(r['example_hash'],r['condition'],r['model'])]=r
+    if 'prediction' in r: existing[(r['example_hash'],r['condition'],r['model'],r.get('prompt_version','legacy'))]=r
    except Exception: pass
  total=len(selected)*len(conditions); done=0
  with out.open('a',encoding='utf-8') as f:
   for i,(text,gold) in enumerate(selected):
    h=digest((text,gold))
    for cond in conditions:
-    key=(h,cond,args.model)
+    key=(h,cond,args.model,PROMPT_VERSION)
     if key in existing: done+=1; continue
-    record={'example_hash':h,'row_id':i,'text':text,'gold':gold,'gold_name':LABEL[gold],'condition':cond,'model':args.model}
+    record={'example_hash':h,'row_id':i,'text':text,'gold':gold,'gold_name':LABEL[gold],'condition':cond,'model':args.model,'prompt_version':PROMPT_VERSION}
     start=time.perf_counter()
     try:
      res=requests.post(args.host.rstrip('/')+'/api/chat',json={'model':args.model,'messages':[{'role':'user','content':prompt(text,cond,demos)}],'stream':False,'think':False,'options':{'temperature':0,'num_predict':32}},timeout=300)
@@ -86,9 +87,9 @@ def main():
  latest={}
  for r in allrows: latest[(r.get('example_hash'),r.get('condition'),r.get('model'))]=r
  allrows=list(latest.values())
- summary={'dataset':'RUHSOLD Task 1 provided test split','n_examples':len(selected),'model':args.model,'temperature':0,'conditions':{}}
+ summary={'dataset':'RUHSOLD Task 1 provided test split','n_examples':len(selected),'model':args.model,'temperature':0,'prompt_version':PROMPT_VERSION,'conditions':{}}
  for cond in conditions:
-  rr=[r for r in allrows if r.get('model')==args.model and r.get('condition')==cond and r.get('example_hash') in {digest(x) for x in selected}]
+  rr=[r for r in allrows if r.get('model')==args.model and r.get('prompt_version')==PROMPT_VERSION and r.get('condition')==cond and r.get('example_hash') in {digest(x) for x in selected}]
   ok=[r for r in rr if 'prediction' in r]
   summary['conditions'][cond]={'attempted':len(rr),'valid':len(ok),'failed':len(rr)-len(ok)}
   if ok:
