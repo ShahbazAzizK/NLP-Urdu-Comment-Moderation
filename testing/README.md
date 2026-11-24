@@ -54,3 +54,8 @@ The runner makes 120 local requests for 30 balanced test examples across zero-sh
 ## Local prompt pilot (completed)
 
 Ollama `qwen3.5:4b` completed 120 local requests: 30 balanced RUHSOLD Task 1 examples across four prompt conditions. Coverage was 100% for every condition. Macro-F1: zero-shot 0.8316; few-shot 0.8643; alignment N=5 0.8990; alignment N=15 0.8999. Accuracy: 0.8333, 0.8667, 0.9000, and 0.9000, respectively. Treat this as exploratory; confirm on a larger untouched sample and review mappings before drawing conclusions. Full metrics are in `results/ollama_prompt_summary.json`; raw outputs and latency are in `results/ollama_prompt_predictions.jsonl`.
+
+
+## Visual pilot notebook
+
+Open qwen_pilot_visualization.ipynb to view score, class F1, confusion matrix, and latency SVG charts generated from the saved local pilot predictions. Charts use notebook HTML/SVG and need no matplotlib/seaborn install.
